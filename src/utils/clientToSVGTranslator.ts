@@ -66,6 +66,9 @@ export module Utils {
 
       return scaledPosition;
     }
+    public isWithinTarget(e: MouseEvent) {
+      return Utils.DOM.boundingSVG(<SVGElement>e.target) === this._svg;
+    }
   }
 }
 }
