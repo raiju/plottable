@@ -884,7 +884,7 @@ var Plottable;
                 return scaledPosition;
             };
             ClientToSVGTranslator.prototype.isWithinTarget = function (e) {
-                return Utils.DOM.boundingSVG(e.target) === this._svg;
+                return Utils.DOM.getBoundingSVG(e.target) === this._svg;
             };
             ClientToSVGTranslator._TRANSLATOR_KEY = "__Plottable_ClientToSVGTranslator";
             return ClientToSVGTranslator;
@@ -8345,7 +8345,6 @@ var Plottable;
                 this._wheelCallbacks = new Plottable.Utils.CallbackSet();
                 this._dblClickCallbacks = new Plottable.Utils.CallbackSet();
                 this._callbacks = [this._moveCallbacks, this._downCallbacks, this._upCallbacks, this._wheelCallbacks, this._dblClickCallbacks];
-
                 var processMoveCallback = function (e) { return _this._measureAndDispatch(e, _this._moveCallbacks, "page"); };
                 this._event2Callback["mouseover"] = processMoveCallback;
                 this._event2Callback["mousemove"] = processMoveCallback;
